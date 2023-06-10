@@ -1,9 +1,19 @@
 const colorsChoice = document.querySelector('#colorsChoice')
 const game = document.querySelector('#game')
 const cursor = document.querySelector('#cursor')
+
 game.width = 1200
 game.height = 600
 const gridCellSize = 10
+
+
+function grid(){
+    if(activegrid == true){
+        activegrid = false
+    }else{
+        activegrid = true
+    }
+}
 
 const ctx = game.getContext('2d');
 const gridCtx = game.getContext('2d');
@@ -75,21 +85,23 @@ game.addEventListener('click', function(){
   addPixelIntoGame()
 })
 
-function drawGrids(ctx, width, height, cellWidth, cellHeight){
-    ctx.beginPath()
-    ctx.strokeStyle = '#ccc'
-
-    for (let i = 0; i < width; i++) {
-        ctx.moveTo(i * cellWidth, 0)
-        ctx.lineTo(i * cellWidth, height)
+    function drawGrids(ctx, width, height, cellWidth, cellHeight){
+        ctx.beginPath()
+        ctx.strokeStyle = '#ccc'
+    
+        for (let i = 0; i < width; i++) {
+            ctx.moveTo(i * cellWidth, 0)
+            ctx.lineTo(i * cellWidth, height)
+        }
+    
+        for (let i = 0; i < height; i++) {
+            ctx.moveTo(0, i * cellHeight)
+            ctx.lineTo(width, i * cellHeight)
+        }
+        ctx.stroke()
     }
 
-    for (let i = 0; i < height; i++) {
-        ctx.moveTo(0, i * cellHeight)
-        ctx.lineTo(width, i * cellHeight)
-    }
-    ctx.stroke()
-}
+
 drawGrids(gridCtx, game.width, game.height, gridCellSize, gridCellSize)
 
 game.addEventListener('mousemove', function(event){
