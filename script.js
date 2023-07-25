@@ -102,7 +102,7 @@ game.addEventListener('click', function(){
     }
 
 
-drawGrids(gridCtx, game.width, game.height, gridCellSize, gridCellSize)
+//drawGrids(gridCtx, game.width, game.height, gridCellSize, gridCellSize)
 
 game.addEventListener('mousemove', function(event){
     console.log(" x :", event.clientX)
@@ -115,4 +115,3 @@ game.addEventListener('mousemove', function(event){
     cursor.style.left = Math.floor(cursorLeft / gridCellSize) * gridCellSize + "px"
     cursor.style.top = Math.floor(cursorTop / gridCellSize) * gridCellSize + "px"
 })
-

@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/css/style.css">
 </head>
 <body>
+    <button id="downloadButton">Download your platy picture</button>
     <h1>Platy pixel</h1>
-
+   
 
     <div id="cursor"></div>
 
@@ -18,8 +19,33 @@
  
     <div id="colorsChoice"></div>
 
+
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="script.js"></script>
+
+
+<script>
+  // Wait for the DOM to be fully loaded
+  document.addEventListener("DOMContentLoaded", function() {
+    const downloadButton = document.getElementById("downloadButton");
+    const canvas = document.getElementById("game");
+
+    // Add a click event listener to the download button
+    downloadButton.addEventListener("click", function() {
+      // Get the data URL of the canvas content
+      const dataURL = canvas.toDataURL("image/png");
+
+      // Create an anchor element to trigger the download
+      const downloadLink = document.createElement("a");
+      downloadLink.href = dataURL;
+      downloadLink.download = "platy-picture.png"; // Set the desired filename
+
+      // Trigger a click event on the anchor element to initiate the download
+      downloadLink.click();
+    });
+  });
+</script>
+
 </body>
 </html>
