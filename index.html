@@ -26,22 +26,19 @@
 
 
 <script>
-  // Wait for the DOM to be fully loaded
+    
   document.addEventListener("DOMContentLoaded", function() {
     const downloadButton = document.getElementById("downloadButton");
     const canvas = document.getElementById("game");
 
-    // Add a click event listener to the download button
+
     downloadButton.addEventListener("click", function() {
-      // Get the data URL of the canvas content
+
       const dataURL = canvas.toDataURL("image/png");
 
-      // Create an anchor element to trigger the download
       const downloadLink = document.createElement("a");
       downloadLink.href = dataURL;
-      downloadLink.download = "platy-picture.png"; // Set the desired filename
-
-      // Trigger a click event on the anchor element to initiate the download
+      downloadLink.download = "platy-picture.png"; 
       downloadLink.click();
     });
   });
