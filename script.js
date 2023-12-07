@@ -64,7 +64,7 @@ function addPixelIntoGame(){
     const y = cursor.offsetTop - game.offsetTop
     
     
-    createPixel(x, y + 10, currentColorChoice)
+    createPixel(x, y, currentColorChoice)
 
     const pixel = {
         x,
