@@ -68,7 +68,7 @@ function addPixelIntoGame(){
 
     const pixel = {
         x,
-        y,
+        y-10,
         color: currentColorChoice
     }
 
